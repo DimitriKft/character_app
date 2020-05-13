@@ -41,4 +41,16 @@ class Personnage
             "intel" => 5
         ]);
     }
+
+    public static function getPersonnageParNom($nom)
+    {
+        foreach(self::$personnages as $perso)
+        {
+            if(strtolower($perso->nom) === $nom)
+            {
+                return $perso;
+            }
+        }
+    }
+    
 }
