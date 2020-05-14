@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnages{% endblock %}
+
+{% block monTitre %}
+Liste des personnages
+{% endblock %}
+
+{% block body %}
+<table class="table">
+    <tr class="thead-dark">
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Dégat</th>
+    </tr>
+    {% for weapon in weapons %}
+        <tr>
+        <td><img src="{{asset('images/armes/' ~ weapon.nom ~ '.png' )}}"></td>
+        <td><a href="{{path('display_weapon', {'nom' :weapon.nom|lower}) }}"> {{ weapon.nom   }}</a></td>
+        <td>{{ weapon.description }}</td>
+        <td>{{ weapon.degat }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
