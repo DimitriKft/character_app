@@ -21,7 +21,7 @@ class Weapon
 
     public static function  creerWeapons()
     {
-        $a1 = new Weapon("epee", "Une superbe épée tranchante", 10);
+        $a1 = new Weapon("épée", "Une superbe épée tranchante", 10);
         $a2 = new Weapon("hache", "Une arme ou un outil", 15);
         $a3 = new Weapon("arc", "Une arme à distance", 7);
     }
@@ -30,7 +30,7 @@ class Weapon
     {
         foreach(self::$weapons as $weapon)
         {
-            if(strtolower($weapon->nom) === $nom)
+            if(strtolower(str_replace("é","e",$weapon->nom)) === $nom)
             {
                 return $weapon;
             }
